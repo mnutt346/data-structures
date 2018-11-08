@@ -4,6 +4,7 @@ var Stack = function() {
   obj.count = 0;
   obj.storage = {};
 
+  
   // obj.push = stackMethods.push;
   // obj.pop = stackMethods.pop;
   // obj.size = stackMethods.size;
