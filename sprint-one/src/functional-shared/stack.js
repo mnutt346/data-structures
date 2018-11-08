@@ -1,41 +1,31 @@
 var Stack = function() {
-  var lastKey;
-  Stack.push = stackMethods.push;
-  Stack.pop = stackMethods.pop;
-  Stack.size = stackMethods.size;
-  return stackMethods;
+  var obj = {};
+  obj.storage = {};
+  obj.pos = 0;
+  obj.push = stackMethods.push;
+  obj.pop = stackMethods.pop;
+  obj.size = stackMethods.size;
+
+  return obj;
 };
 
 var stackMethods = {};
-var storage = {};  
 
 stackMethods.push = function (value) {
-  console.log('*****PUSH*****');
-  if (Object.keys(storage).length === 0) {
-    storage[0] = value;
-    lastKey = 0;
-  } else {
-    lastKey++;
-    storage[lastKey] = value;
-  }
+  this.pos++;
+  this.storage[this.pos] = value;
 }
 
 stackMethods.pop = function () {
-  console.log('*****POP*****');
-  if (Object.keys(storage).length === 0) {
-    return 0;
-  } else {
-    var popVal = storage[lastKey];
-    delete storage[lastKey];
-    lastKey--;
+  var delData =this.storage[this.pos];
+  if (this.pos < 1) { 
+    return 0; 
   }
-  return popVal;
+  delete this.storage.pos;
+  this.pos--;
+  return delData;
 }
 
 stackMethods.size = function () {
-  if (Object.keys(storage).length === 0) {
-    return 0;
-  } else {
-    return Object.keys(storage).length;
-  }
+  return this.pos;
 }
