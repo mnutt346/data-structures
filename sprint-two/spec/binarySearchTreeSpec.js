@@ -37,4 +37,22 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  it('should not add duplicate values', function () {
+    var array = [];
+    var func = function(value) { array.push(value); };
+    binarySearchTree.insert(5);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.depthFirstLog(func);
+    expect(array).to.eql([5, 2, 3, 7]);
+  })
+
+  // it('should remove node at given value', function () {
+  //   binarySearchTree.insert(2);
+  //   binarySearchTree.insert(3);
+  //   binarySearchTree.insert(7);
+  //   binarySearchTree.remove(3);
+  // })
 });

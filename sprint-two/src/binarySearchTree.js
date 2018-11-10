@@ -18,7 +18,9 @@ BinarySearchTree.prototype.insert = function(value) {
     }
 
     if(Object.keys(this.store.left).length < 1 && Object.keys(this.store.right).length < 1) {
-        if(value < this.store.value) {
+        if(value === this.store.value) {
+            return;
+        } else if(value < this.store.value) {
             this.store.left = newNode(value);
             return;
         } else {
@@ -28,7 +30,9 @@ BinarySearchTree.prototype.insert = function(value) {
     }
 
     var recursion = function (nodeA) {
-        if(value < nodeA.value) {
+        if(value === nodeA.value) {
+            return;
+        } else if(value < nodeA.value) {
             if (Object.keys(nodeA.left).length < 1) {
                 nodeA.left = newNode(value);
             } else {
