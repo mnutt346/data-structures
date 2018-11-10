@@ -22,6 +22,7 @@ HashTable.prototype.insert = function(k, v) {
     this._storage[index] = [];
     this._storage[index].push(tuple);
   }
+
 };
 
 HashTable.prototype.retrieve = function(k) {
@@ -32,6 +33,7 @@ HashTable.prototype.retrieve = function(k) {
     }
   }
 };
+
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
